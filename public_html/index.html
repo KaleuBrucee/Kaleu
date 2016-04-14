@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            
+            #fundo {
+                width: 100%;
+                height: 100%;
+                top:0;
+                left:0;
+                position:absolute;
+                background-color: #ccc;
+            }
+            
+            #bola {
+                width: 50px;
+                height: 50px;
+                border-radius: 100%;
+                background-color: #000000;
+                position:absolute;
+            }
+            
+        </style>
+        <script type="text/javascript">
+            
+            onload = function() {
+              
+               mover();
+        
+            };
+            
+            function mover() {
+                var fundo = document.getElementById("fundo").offsetWidth;
+                var elem = document.getElementById("bola");
+                var tam  = elem.offsetLeft + elem.offsetWidth;
+                
+                if(tam < fundo) {
+                    var cont = elem.offsetLeft + 1;
+                    elem.setAttribute("style","left:"+cont+"px");
+                    loading();
+                }
+            };
+            
+            function loading() {
+                clearInterval();
+                setInterval(function(){mover();},100);
+            }
+            
+            
+        </script>
+    </head>
+    <body>
+        <div id="fundo">
+            <div id="bola"></div>
+        </div>
+    </body>
+</html>
